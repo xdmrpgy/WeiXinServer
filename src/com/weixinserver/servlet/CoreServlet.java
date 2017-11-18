@@ -1,5 +1,6 @@
 package com.weixinserver.servlet;
 
+import com.weixinserver.service.CoreService;
 import com.weixinserver.utils.SignUtil;
 
 import javax.servlet.ServletException;
@@ -9,10 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @description:核心控制类
+ * @author:panguangyi
+ * @date: 2017-11-18
+ */
 public class CoreServlet extends HttpServlet {
     private static long serialVersionUID = 1L;
 
-    @Override
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 微信加密签名
         String signature = request.getParameter("signature");
@@ -31,8 +37,17 @@ public class CoreServlet extends HttpServlet {
         out = null;
     }
 
-    @Override
+    /**
+      * @description:处理微信服务器发来的消息
+      * @date:2017-11-18
+      */
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        String respMsg = CoreService.processRequest(req);
+        PrintWriter out = resp.getWriter();
+        out.print(respMsg);
+        out.close();
+        out = null;
     }
 }

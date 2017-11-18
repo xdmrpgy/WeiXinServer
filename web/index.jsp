@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>夜尽天会明</title>
   </head>
   <body>
-  Hello WeiXin!
+  欢迎关注我的公众号！
   </body>
 </html>
