@@ -13,7 +13,7 @@
 
     <servlet-mapping>
         <servlet-name>CoreServlet</servlet-name>
-        <url-pattern>/roypan</url-pattern>
+        <url-pattern>/coreServlet</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
